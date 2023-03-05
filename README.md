@@ -12,5 +12,5 @@
 
 В тестах используется настройка implicitly-wait веб-драйвера.
 В тестах используются элементы класса WebDriverWait.
-
+pip install -r requirements.txt - устанавливает все зависимости с файла.
 pytest -v -k test

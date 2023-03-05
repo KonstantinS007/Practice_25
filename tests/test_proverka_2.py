@@ -9,10 +9,11 @@ def test_photo_pets(show_my_pets):
 
     element = WebDriverWait(pytest.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".\\.col-sm-4.left")))
 
+    pytest.driver.implicitly_wait(10)  # Неявные ожидания (сек)
     ages = pytest.driver.find_elements(By.CSS_SELECTOR, 'div#all_my_pets > table > tbody > tr > td:nth-child(4)')
     pets_count = pytest.driver.find_elements(By.CSS_SELECTOR, '.table.table-hover tbody tr')
     images = pytest.driver.find_elements(By.CSS_SELECTOR, 'div#all_my_pets > table > tbody > tr > th > img')
-    pytest.driver.implicitly_wait(10)  # Неявные ожидания (сек)
+
     number_image = 0
     half_num = float((len(pets_count) - 1)/2)
 
