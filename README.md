@@ -10,7 +10,7 @@
     pytest test_proverka_4 :У всех питомцев разные имена
     pytest test_proverka_5 :В списке нет повторяющихся питомцев
 
-В тестах используется настройка implicitly-wait веб-драйвера.
-В тестах используются элементы класса WebDriverWait.
-pip install -r requirements.txt - устанавливает все зависимости с файла.
+В тестах используется настройка implicitly-wait веб-драйвера. 
+В тестах используются элементы класса WebDriverWait. 
+pip install -r requirements.txt - устанавливает все зависимости с файла. 
 pytest -v -k test
