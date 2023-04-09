@@ -1,4 +1,5 @@
 import pytest
+import pickle
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from settings import *
@@ -31,7 +32,8 @@ def show_my_pets():
    element = WebDriverWait(pytest.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "button[type='submit']")))
    # Нажимаем на кнопку входа в аккаунт
    pytest.driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').click()
-
+   with open('my_cookies.txt', 'wb') as cookies:
+      pickle.dump(pytest.driver.get_cookies(), cookies)
    # Проверяем с явным ожиданием, что мы авторизовались и оказались на главной странице /all_pets
    assert WebDriverWait(pytest.driver, 10).until(
       EC.presence_of_all_elements_located((By.XPATH, "// button[contains(text(), 'Выйти')]")))
